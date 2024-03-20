@@ -1,0 +1,40 @@
+create database cycle2;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use cycle2;
+Database changed
+
+mysql> create table jobs(job_id varchar(255) PRIMARY KEY,job_title varchar(255),min_salary INT,max_salary INT);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> create table regions(region_id varchar(255) PRIMARY KEY,region_name varchar(255));
+Query OK, 0 rows affected (0.05 sec)
+
+create table countries(country_id varchar(255) PRIMARY KEY,country_name varchar(255),region_id varchar(255),FOREIGN KEY(region_id) REFERENCES regions(region_id));
+
+mysql> create table locations(location_id varchar(255) PRIMARY KEY,street_address varchar(255),postal_code INT,city varchar(255),state_province varchar(255),country_id varchar(255),FOREIGN KEY(country_id) REFERENCES countries(country_id));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> create table departments(department_id varchar(255) PRIMARY KEY,department_name varchar(255),location_id varchar(255),FOREIGN KEY(location_id) REFERENCES locations(location_id));
+Query OK, 0 rows affected (0.06 sec)
+ 
+mysql> create table employees(employee_id varchar(255) PRIMARY KEY,first_name varchar(255),last_name varchar(255),email varchar(100),phone_number INT,hire_date date,job_id varchar(255),FOREIGN KEY(job_id) REFERENCES jobs(job_id),salary int,manager_id varchar(255),FOREIGN KEY(manager_id) REFERENCES employees(employee_id),department_id varchar(255),FOREIGN KEY(department_id) REFERENCES departments(department_id));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> create table dependents(dependent_id varchar(255) primary key,first_name varchar(255),last_name varchar(255),employee_id varchar(255),FOREIGN KEY(employee_id) REFERENCES employees(employee_id));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_cycle2 |
++------------------+
+| countries        |
+| departments      |
+| dependents       |
+| employees        |
+| jobs             |
+| locations        |
+| regions          |
++------------------+
+7 rows in set (0.00 sec)
+
