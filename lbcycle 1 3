@@ -1,0 +1,111 @@
+
+Insert data:
+sql
+Copy code
+INSERT INTO Employee (emp_no, emp_name, designation, deptno, salary) VALUES
+(1, 'John', 'Manager', 'D01', 50000),
+-- ... (repeat for other employees)
+
+INSERT INTO Department (deptno, dept_name) VALUES
+('D01', 'Department 1'),
+-- ... (repeat for other departments)
+Display all records:
+sql
+Copy code
+SELECT * FROM Employee;
+SELECT * FROM Department;
+
+Display employees from 'D02':
+sql
+Copy code
+SELECT emp_no, emp_name FROM Employee WHERE deptno = 'D02';
+
+Display employees in descending order of salary:
+sql
+Copy code
+SELECT emp_no, emp_name, designation, deptno, salary FROM Employee ORDER BY salary DESC;
+
+Display employees with salary between 2000 and 5000:
+sql
+Copy code
+SELECT emp_no, emp_name FROM Employee WHERE salary BETWEEN 2000 AND 5000;
+
+Display unique designations:
+sql
+Copy code
+SELECT DISTINCT designation FROM Employee;
+
+Change salary for 'Manager' designation:
+sql
+Copy code
+UPDATE Employee SET salary = 45000 WHERE designation = 'Manager';
+
+Change mobile number for employees named 'John':
+sql
+Copy code
+UPDATE Employee SET mobile_number = 'new_number' WHERE emp_name = 'John';
+
+Delete employees with salary Rs.7000:
+sql
+Copy code
+DELETE FROM Employee WHERE salary = 7000;
+
+Retrieve name and mobile of employees starting with 'A':
+sql
+Copy code
+SELECT emp_name, mobile_number FROM Employee WHERE emp_name LIKE 'A%';
+
+Display employees with at least three characters in name and salary > 20000:
+sql
+Copy code
+SELECT * FROM Employee WHERE LENGTH(emp_name) >= 3 AND salary > 20000;
+
+Display details of specific employees:
+sql
+Copy code
+SELECT * FROM Employee WHERE emp_no IN ('emp1', 'emp2', 'emp6');
+
+Display employees with salary between 120000 and 300000:
+sql
+Copy code
+SELECT emp_name, emp_id FROM Employee WHERE salary BETWEEN 120000 AND 300000;
+
+Display 'Manager' or 'Computer Assistant' employees:
+sql
+Copy code
+SELECT * FROM Employee WHERE designation IN ('Manager', 'Computer Assistant');
+
+Display number of employees per department:
+sql
+Copy code
+SELECT deptno, COUNT(emp_no) AS num_employees FROM Employee GROUP BY deptno;
+
+Display average salary per department:
+sql
+Copy code
+SELECT deptno, AVG(salary) AS avg_salary FROM Employee GROUP BY deptno;
+
+Display total salary per department:
+sql
+Copy code
+SELECT deptno, SUM(salary) AS total_salary FROM Employee GROUP BY deptno;
+
+Display top and lower salary per department:
+sql
+Copy code
+SELECT deptno, MAX(salary) AS top_salary, MIN(salary) AS lower_salary FROM Employee GROUP BY deptno;
+
+Average salary in all departments except 'D05':
+sql
+Copy code
+SELECT AVG(salary) AS avg_salary FROM Employee WHERE deptno != 'D05';
+
+Average salary in all departments except 'D01' with avg_salary > 20000:
+sql
+Copy code
+SELECT deptno, AVG(salary) AS avg_salary FROM Employee WHERE deptno != 'D01' GROUP BY deptno HAVING avg_salary > 20000 ORDER BY avg_salary ASC;
+
+
+
+
+
