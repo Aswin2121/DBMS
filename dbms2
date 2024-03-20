@@ -1,0 +1,87 @@
+
+
+mysql> USE orgDB;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+mysql> CREATE TABLE person(person_id INT PRIMARY KEY,name VARCHAR(50) NOT NULL,adhaar_no NUMERIC(12,0) NOT NULL UNIQUE,age INT CHECK(age>18));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> DESC person;
++-----------+---------------+------+-----+---------+-------+
+| Field     | Type          | Null | Key | Default | Extra |
++-----------+---------------+------+-----+---------+-------+
+| person_id | int(11)       | NO   | PRI | NULL    |       |
+| name      | varchar(50)   | NO   |     | NULL    |       |
+| adhaar_no | decimal(12,0) | NO   | UNI | NULL    |       |
+| age       | int(11)       | YES  |     | NULL    |       |
++-----------+---------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE TABLE orders(order_id INT PRIMARY KEY,order_no INT NOT NULL,person_id INT,FOREIGN KEY (person_id) REFERENCES person(person_id));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> DESC orders;
++-----------+---------+------+-----+---------+-------+
+| Field     | Type    | Null | Key | Default | Extra |
++-----------+---------+------+-----+---------+-------+
+| order_id  | int(11) | NO   | PRI | NULL    |       |
+| order_no  | int(11) | NO   |     | NULL    |       |
+| person_id | int(11) | YES  | MUL | NULL    |       |
++-----------+---------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> ALTER TABLE orders MODIFY column order_no VARCHAR(200);
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC orders;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| order_id  | int(11)      | NO   | PRI | NULL    |       |
+| order_no  | varchar(200) | YES  |     | NULL    |       |
+| person_id | int(11)      | YES  | MUL | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> ALTER TABLE employee MODIFY column emp_no PRIMARY KEY;
+mysql> ALTER TABLE department ADD PRIMARY KEY(dept_no);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> ALTER TABLE employee ADD CONSTRAINT fk_dept_no FOREIGN KEY(dept_no)REFERENCES department(dept_no)ON DELETE CASCADE;
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC employee;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| emp_no      | varchar(10)  | NO   | PRI | NULL    |       |
+| emp_name    | varchar(250) | YES  |     | NULL    |       |
+| dob         | date         | YES  |     | NULL    |       |
+| address     | text         | YES  |     | NULL    |       |
+| mob_no      | int(11)      | YES  |     | NULL    |       |
+| dept_no     | varchar(10)  | YES  | MUL | NULL    |       |
+| salary      | int(11)      | YES  |     | NULL    |       |
+| designation | varchar(255) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> ALTER TABLE orders DROP PRIMARY KEY;
+Query OK, 0 rows affected (0.14 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+   
+mysql> desc orders;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| order_id  | int(11)      | NO   |     | NULL    |       |
+| order_no  | varchar(200) | YES  |     | NULL    |       |
+| person_id | int(11)      | YES  | MUL | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+

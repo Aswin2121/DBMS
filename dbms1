@@ -1,0 +1,97 @@
+CREATE DATABASE collegeDB;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE collegeDB;
+Database changed
+mysql> CREATE TABLE student(roll_no INT PRIMARY KEY,name VARCHAR(255),dob DATE,address TEXT,phone_no VARCHAR(48),blood_grp VARCHAR(53));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> DESC student
+    -> DESC student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DESC student' at line 2
+mysql> DESC student;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| roll_no   | int(11)      | NO   | PRI | NULL    |       |
+| name      | varchar(255) | YES  |     | NULL    |       |
+| dob       | date         | YES  |     | NULL    |       |
+| address   | text         | YES  |     | NULL    |       |
+| phone_no  | varchar(48)  | YES  |     | NULL    |       |
+| blood_grp | varchar(53)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> ALTER TABLE student DROP column blood_grp;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC student;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| roll_no  | int(11)      | NO   | PRI | NULL    |       |
+| name     | varchar(255) | YES  |     | NULL    |       |
+| dob      | date         | YES  |     | NULL    |       |
+| address  | text         | YES  |     | NULL    |       |
+| phone_no | varchar(48)  | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> ALTER TABLE student ADD adhaar_no INT;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| roll_no   | int(11)      | NO   | PRI | NULL    |       |
+| name      | varchar(255) | YES  |     | NULL    |       |
+| dob       | date         | YES  |     | NULL    |       |
+| address   | text         | YES  |     | NULL    |       |
+| phone_no  | varchar(48)  | YES  |     | NULL    |       |
+| adhaar_no | int(11)      | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+ALTER TABLE student MODIFY column phone_no INT;
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+DESC student;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| roll_no   | int(11)      | NO   | PRI | NULL    |       |
+| name      | varchar(255) | YES  |     | NULL    |       |
+| dob       | date         | YES  |     | NULL    |       |
+| address   | text         | YES  |     | NULL    |       |
+| phone_no  | int(11)      | YES  |     | NULL    |       |
+| adhaar_no | int(11)      | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+CREATE TABLE course(course_id INT,course_name VARCHAR(255),course_duration INT);
+Query OK, 0 rows affected (0.05 sec)
+mysql> SHOW TABLES;
++---------------------+
+| Tables_in_collegeDB |
++---------------------+
+| course              |
+| student             |
++---------------------+
+2 rows in set (0.00 sec)
+mysql> DESC course;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| course_id       | int(11)      | YES  |     | NULL    |       |
+| course_name     | varchar(255) | YES  |     | NULL    |       |
+| course_duration | int(11)      | YES  |     | NULL    |       |
++-----------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+mysql> DROP TABLE student,course;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> DROP DATABASE collegeDB;
+Query OK, 0 rows affected (0.00 sec)
+
+
