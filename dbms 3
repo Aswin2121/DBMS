@@ -1,0 +1,277 @@
+1)INSERT INTO department (dept_no, dept_name) VALUES ('D01', 'Finance'), ('D02', 'Marketing'), ('D03', 'Human Resources'), ('D04', 'Operations'), ('D05', 'IT');
+Query OK, 5 rows affected (0.04 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+INSERT INTO employee (emp_no, emp_name, designation, dept_no, salary) VALUES ('emp1', 'John',
+'Manager', 'D01', 55000), ('emp2', 'Alice', 'Assistant Manager', 'D02', 48000), ('emp3', 'Bob', 'HR Executive', 'D02', 35000), ('emp4', 'Charlie', 'Marketing Analyst', 'D03', 38000), ('emp5', 'David', 'Software Engineer', 'D04', 42000), ('emp6', 'Emma', 'Manager', 'D02', 50000), ('emp7', 'Frank', 'Computer Assistant', 'D05', 32000), ('emp8', 'Grace', 'HR Executive', 'D02', 30000), ('emp9', 'Henry', 'Accountant', 'D01', 40000), ('emp10', 'Ivy', 'Manager', 'D03', 7000);
+Query OK, 10 rows affected (0.04 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+
+2) select * from employee;
++--------+----------+------+---------+-----------+---------+--------+--------------------+
+| emp_no | emp_name | dob  | address | mobile_no | dept_no | salary | designation        |
++--------+----------+------+---------+-----------+---------+--------+--------------------+
+| emp1   | John     | NULL | NULL    | NULL      | D01     |  55000 | Manager            |
+| emp10  | Ivy      | NULL | NULL    | NULL      | D03     |   7000 | Manager            |
+| emp2   | Alice    | NULL | NULL    | NULL      | D02     |  48000 | Assistant Manager  |
+| emp3   | Bob      | NULL | NULL    | NULL      | D02     |  35000 | HR Executive       |
+| emp4   | Charlie  | NULL | NULL    | NULL      | D03     |  38000 | Marketing Analyst  |
+| emp5   | David    | NULL | NULL    | NULL      | D04     |  42000 | Software Engineer  |
+| emp6   | Emma     | NULL | NULL    | NULL      | D02     |  50000 | Manager            |
+| emp7   | Frank    | NULL | NULL    | NULL      | D05     |  32000 | Computer Assistant |
+| emp8   | Grace    | NULL | NULL    | NULL      | D02     |  30000 | HR Executive       |
+| emp9   | Henry    | NULL | NULL    | NULL      | D01     |  40000 | Accountant         |
++--------+----------+------+---------+-----------+---------+--------+--------------------+
+10 rows in set (0.01 sec)
+
+select * from department;
++---------+-----------------+
+| dept_no | dept_name       |
++---------+-----------------+
+| D01     | Finance         |
+| D02     | Marketing       |
+| D03     | Human Resources |
+| D04     | Operations      |
+| D05     | IT              |
++---------+-----------------+
+5 rows in set (0.00 sec)
+
+
+3) SELECT emp_no, emp_name FROM employee where dept_no='D02';
++--------+----------+
+| emp_no | emp_name |
++--------+----------+
+| emp2   | Alice    |
+| emp3   | Bob      |
+| emp6   | Emma     |
+| emp8   | Grace    |
++--------+----------+
+4 rows in set (0.00 sec)
+
+
+4)  SELECT emp_no, emp_name,designation, dept_no, salary FROM employee ORDER BY salary DESC;
++--------+----------+--------------------+---------+--------+
+| emp_no | emp_name | designation        | dept_no | salary |
++--------+----------+--------------------+---------+--------+
+| emp1   | John     | Manager            | D01     |  55000 |
+| emp6   | Emma     | Manager            | D02     |  50000 |
+| emp2   | Alice    | Assistant Manager  | D02     |  48000 |
+| emp5   | David    | Software Engineer  | D04     |  42000 |
+| emp9   | Henry    | Accountant         | D01     |  40000 |
+| emp4   | Charlie  | Marketing Analyst  | D03     |  38000 |
+| emp3   | Bob      | HR Executive       | D02     |  35000 |
+| emp7   | Frank    | Computer Assistant | D05     |  32000 |
+| emp8   | Grace    | HR Executive       | D02     |  30000 |
+| emp10  | Ivy      | Manager            | D03     |   7000 |
++--------+----------+--------------------+---------+--------+
+10 rows in set (0.00 sec)
+
+
+5)  INSERT INTO employee (emp_no, emp_name, designation, dept_no, salary) VALUES ('emp11', 'lohn',
+ 'Manager', 'D01', 4000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO employee (emp_no, emp_name, designation, dept_no, salary) VALUES ('emp12', 'neha',
+ 'Accountant', 'D02', 3500);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT emp_no, emp_name FROM employee WHERE salary BETWEEN 2000 AND 5000;
++--------+----------+
+| emp_no | emp_name |
++--------+----------+
+| emp11  | lohn     |
+| emp12  | neha     |
++--------+----------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+6) SELECT DISTINCT designation FROM employee;
++--------------------+
+| designation        |
++--------------------+
+| Manager            |
+| Accountant         |
+| Assistant Manager  |
+| HR Executive       |
+| Marketing Analyst  |
+| Software Engineer  |
+| Computer Assistant |
++--------------------+
+7 rows in set (0.00 sec)
+
+
+
+7) UPDATE employee SET salary = 45000 WHERE designation = 'Manager';
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+8) UPDATE employee SET mobile_no = 123456789 WHERE emp_name = 'John';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+9) DELETE FROM employee WHERE salary = 7000;
+Query OK, 0 rows affected (0.00 sec)
+
+
+10)  select emp_name,mobile_no from employee where emp_name like 'A%';
++----------+-----------+
+| emp_name | mobile_no |
++----------+-----------+
+| Alice    | NULL      |
++----------+-----------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+11) SELECT * FROM employee WHERE LENGTH(emp_name) >= 3 AND salary > 20000;
++--------+----------+------+---------+-----------+---------+--------+--------------------+
+| emp_no | emp_name | dob  | address | mobile_no | dept_no | salary | designation        |
++--------+----------+------+---------+-----------+---------+--------+--------------------+
+| emp1   | John     | NULL | NULL    | 123456789 | D01     |  45000 | Manager            |
+| emp10  | Ivy      | NULL | NULL    | NULL      | D03     |  45000 | Manager            |
+| emp11  | lohn     | NULL | NULL    | NULL      | D01     |  45000 | Manager            |
+| emp2   | Alice    | NULL | NULL    | NULL      | D02     |  48000 | Assistant Manager  |
+| emp3   | Bob      | NULL | NULL    | NULL      | D02     |  35000 | HR Executive       |
+| emp4   | Charlie  | NULL | NULL    | NULL      | D03     |  38000 | Marketing Analyst  |
+| emp5   | David    | NULL | NULL    | NULL      | D04     |  42000 | Software Engineer  |
+| emp6   | Emma     | NULL | NULL    | NULL      | D02     |  45000 | Manager            |
+| emp7   | Frank    | NULL | NULL    | NULL      | D05     |  32000 | Computer Assistant |
+| emp8   | Grace    | NULL | NULL    | NULL      | D02     |  30000 | HR Executive       |
+| emp9   | Henry    | NULL | NULL    | NULL      | D01     |  40000 | Accountant         |
++--------+----------+------+---------+-----------+---------+--------+--------------------+
+11 rows in set (0.00 sec)
+
+
+12) SELECT * FROM employee WHERE emp_no IN ('emp1', 'emp2', 'emp6');
++--------+----------+------+---------+-----------+---------+--------+-------------------+
+| emp_no | emp_name | dob  | address | mobile_no | dept_no | salary | designation       |
++--------+----------+------+---------+-----------+---------+--------+-------------------+
+| emp1   | John     | NULL | NULL    | 123456789 | D01     |  45000 | Manager           |
+| emp2   | Alice    | NULL | NULL    | NULL      | D02     |  48000 | Assistant Manager |
+| emp6   | Emma     | NULL | NULL    | NULL      | D02     |  45000 | Manager           |
++--------+----------+------+---------+-----------+---------+--------+-------------------+
+3 rows in set (0.00 sec)
+
+
+13) INSERT INTO employee (emp_no, emp_name, designation, dept_no, salary) VALUES ('emp13', 'jeena', 'Accountant', 'D02', 200000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> SELECT emp_name, emp_no FROM employee WHERE salary BETWEEN 120000 AND 300000;
++----------+--------+
+| emp_name | emp_no |
++----------+--------+
+| jeena    | emp13  |
++----------+--------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+14) SELECT * FROM employee WHERE designation IN ('Manager', 'Computer Assistant');
++--------+----------+------+---------+-----------+---------+--------+--------------------+
+| emp_no | emp_name | dob  | address | mobile_no | dept_no | salary | designation        |
++--------+----------+------+---------+-----------+---------+--------+--------------------+
+| emp1   | John     | NULL | NULL    | 123456789 | D01     |  45000 | Manager            |
+| emp10  | Ivy      | NULL | NULL    | NULL      | D03     |  45000 | Manager            |
+| emp11  | lohn     | NULL | NULL    | NULL      | D01     |  45000 | Manager            |
+| emp6   | Emma     | NULL | NULL    | NULL      | D02     |  45000 | Manager            |
+| emp7   | Frank    | NULL | NULL    | NULL      | D05     |  32000 | Computer Assistant |
++--------+----------+------+---------+-----------+---------+--------+--------------------+
+5 rows in set (0.00 sec)
+
+15) SELECT dept_no, COUNT(*) AS employee_count FROM employee GROUP BY dept_no;
++---------+----------------+
+| dept_no | employee_count |
++---------+----------------+
+| D01     |              3 |
+| D02     |              6 |
+| D03     |              2 |
+| D04     |              1 |
+| D05     |              1 |
++---------+----------------+
+5 rows in set (0.04 sec)
+
+
+16) SELECT dept_no, AVG(salary) AS average_salary FROM employee GROUP BY dept_no;
++---------+----------------+
+| dept_no | average_salary |
++---------+----------------+
+| D01     |     43333.3333 |
+| D02     |     60250.0000 |
+| D03     |     41500.0000 |
+| D04     |     42000.0000 |
+| D05     |     32000.0000 |
++---------+----------------+
+5 rows in set (0.00 sec)
+
+
+
+17) SELECT dept_no, SUM(salary) AS total_salary FROM employee GROUP BY dept_no;
++---------+--------------+
+| dept_no | total_salary |
++---------+--------------+
+| D01     |       130000 |
+| D02     |       361500 |
+| D03     |        83000 |
+| D04     |        42000 |
+| D05     |        32000 |
++---------+--------------+
+5 rows in set (0.00 sec)
+
+
+18) mysql> SELECT dept_no, MAX(salary) AS top_salary, MIN(salary) AS lowest_salary FROM
+    employee GROUP BY dept_no;
++---------+------------+---------------+
+| dept_no | top_salary | lowest_salary |
++---------+------------+---------------+
+| D01     |      45000 |         40000 |
+| D02     |     200000 |          3500 |
+| D03     |      45000 |         38000 |
+| D04     |      42000 |         42000 |
+| D05     |      32000 |         32000 |
++---------+------------+---------------+
+5 rows in set (0.01 sec)
+
+19) SELECT AVG(salary) AS average_salary FROM employee WHERE dept_no != 'D05';
++----------------+
+| average_salary |
++----------------+
+|     51375.0000 |
++----------------+
+1 row in set (0.00 sec)
+
+
+20) SELECT dept_no, AVG(salary) AS average_salary FROM employee WHERE dept_no != 'D01' GROUP BY dept_no HAVING AVG(salary) > 20000 ORDER BY average_salary ASC;
++---------+----------------+
+| dept_no | average_salary |
++---------+----------------+
+| D05     |     32000.0000 |
+| D03     |     41500.0000 |
+| D04     |     42000.0000 |
+| D02     |     60250.0000 |
++---------+----------------+
