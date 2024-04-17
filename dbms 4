@@ -38,3 +38,549 @@ mysql> show tables;
 +------------------+
 7 rows in set (0.00 sec)
 
+mysql> INSERT INTO regions(region_id,region_name) VALUES (1,'Europe');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO regions(region_id,region_name) VALUES (2,'Americas');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO regions(region_id,region_name) VALUES (3,'Asia');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO regions(region_id,region_name) VALUES (4,'Middle East and Africa');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from regions;
++-----------+------------------------+
+| region_id | region_name            |
++-----------+------------------------+
+| 1         | Europe                 |
+| 2         | Americas               |
+| 3         | Asia                   |
+| 4         | Middle East and Africa |
++-----------+------------------------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('AR','Argentina',2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('AU','Australia',3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('BE','Belgium',1);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('BR','Brazil',2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('CA','Canada',2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('CH','Switzerland',1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('CN','China',3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('DE','Germany',1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('DK','Denmark',1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('EG','Egypt',4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('FR','France',1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('HK','HongKong',3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('IL','Israel',4);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('IN','India',3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('IT','Italy',1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('JP','Japan',3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('KW','Kuwait',4);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('MX','Mexico',2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('NG','Nigeria',4);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('NL','Netherlands',1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('SG','Singapore',3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('UK','United Kingdom',1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('US','United States of America',2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('ZM','Zambia',4);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO countries(country_id,country_name,region_id) VALUES ('ZW','Zimbabwe',4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from countries;
++------------+--------------------------+-----------+
+| country_id | country_name             | region_id |
++------------+--------------------------+-----------+
+| AR         | Argentina                | 2         |
+| AU         | Australia                | 3         |
+| BE         | Belgium                  | 1         |
+| BR         | Brazil                   | 2         |
+| CA         | Canada                   | 2         |
+| CH         | Switzerland              | 1         |
+| CN         | China                    | 3         |
+| DE         | Germany                  | 1         |
+| DK         | Denmark                  | 1         |
+| EG         | Egypt                    | 4         |
+| FR         | France                   | 1         |
+| HK         | HongKong                 | 3         |
+| IL         | Israel                   | 4         |
+| IN         | India                    | 3         |
+| IT         | Italy                    | 1         |
+| JP         | Japan                    | 3         |
+| KW         | Kuwait                   | 4         |
+| MX         | Mexico                   | 2         |
+| NG         | Nigeria                  | 4         |
+| NL         | Netherlands              | 1         |
+| SG         | Singapore                | 3         |
+| UK         | United Kingdom           | 1         |
+| US         | United States of America | 2         |
+| ZM         | Zambia                   | 4         |
+| ZW         | Zimbabwe                 | 4         |
++------------+--------------------------+-----------+
+25 rows in set (0.00 sec)
+
+mysql> INSERT INTO locations(locations_id,street_address,postal_code,city,state_province,country_id) VALUES (1400,'2014 Jabberwocky Rd','26192','Southlake','Texas','US');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO locations(locations_id,street_address,postal_code,city,state_province,country_id) VALUES (1500,'2011 Interiors Blvd','99236','South San Francisco','California','US');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO locations(locations_id,street_address,postal_code,city,state_province,country_id) VALUES (1700,'2004 Charade Rd','98199','Seattle','Washington','US');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO locations(locations_id,street_address,postal_code,city,state_province,country_id) VALUES (2400,'8204 Arthur St',NULL,'London',NULL,'UK');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO locations(locations_id,street_address,postal_code,city,state_province,country_id) VALUES (2700,'Schwanthalerstr. 7031','80925','Munich','Bavaria','DE');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from locations;
++--------------+-----------------------+-------------+---------------------+----------------+------------+
+| locations_id | street_address        | postal_code | city                | state_province | country_id |
++--------------+-----------------------+-------------+---------------------+----------------+------------+
+| 1400         | 2014 Jabberwocky Rd   |       26192 | Southlake           | Texas          | US         |
+| 1500         | 2011 Interiors Blvd   |       99236 | South San Francisco | California     | US         |
+| 1700         | 2004 Charade Rd       |       98199 | Seattle             | Washington     | US         |
+| 2400         | 8204 Arthur St        |        NULL | London              | NULL           | UK         |
+| 2700         | Schwanthalerstr. 7031 |       80925 | Munich              | Bavaria        | DE         |
++--------------+-----------------------+-------------+---------------------+----------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (1,'Public Accountant',4200.00,9000.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (2,'Accounting Manager',8200.00,16000.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (3,'Administration Assistant',3000.00,6000.00);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (4,'President',20000.00,40000.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (5,'Administration Vice President',15000.00,30000.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (6,'Accountant',4200.00,9000.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (7,'Finance Manager',8200.00,16000.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (8,'Human Resources Representative',4000.00,9000.00);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (9,'Programmer',4000.00,10000.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (10,'Marketing Manager',9000.00,15000.00);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (11,'Marketing Representative',4000.00,9000.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (12,'Public Relations Representative',4500.00,10500.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (13,'Purchasing Clerk',2500.00,5500.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (14,'Purchasing Manager',8000.00,15000.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (15,'Sales Manager',10000.00,20000.00);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (16,'Sales Representative',6000.00,12000.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (17,'Shipping Clerk',2500.00,5500.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (18,'Stock Clerk',2000.00,5000.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO jobs(job_id,job_title,min_salary,max_salary) VALUES (19,'Stock Manager',5500.00,8500.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from jobs;
++--------+---------------------------------+------------+------------+
+| job_id | job_title                       | min_salary | max_salary |
++--------+---------------------------------+------------+------------+
+| 1      | Public Accountant               |       4200 |       9000 |
+| 10     | Marketing Manager               |       9000 |      15000 |
+| 11     | Marketing Representative        |       4000 |       9000 |
+| 12     | Public Relations Representative |       4500 |      10500 |
+| 13     | Purchasing Clerk                |       2500 |       5500 |
+| 14     | Purchasing Manager              |       8000 |      15000 |
+| 15     | Sales Manager                   |      10000 |      20000 |
+| 16     | Sales Representative            |       6000 |      12000 |
+| 17     | Shipping Clerk                  |       2500 |       5500 |
+| 18     | Stock Clerk                     |       2000 |       5000 |
+| 19     | Stock Manager                   |       5500 |       8500 |
+| 2      | Accounting Manager              |       8200 |      16000 |
+| 3      | Administration Assistant        |       3000 |       6000 |
+| 4      | President                       |      20000 |      40000 |
+| 5      | Administration Vice President   |      15000 |      30000 |
+| 6      | Accountant                      |       4200 |       9000 |
+| 7      | Finance Manager                 |       8200 |      16000 |
+| 8      | Human Resources Representative  |       4000 |       9000 |
+| 9      | Programmer                      |       4000 |      10000 |
++--------+---------------------------------+------------+------------+
+19 rows in set (0.00 sec)
+
+mysql> INSERT INTO departments(department_id,department_name,location_id) VALUES (1,'Administration',1700);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO departments(department_id,department_name,location_id) VALUES (2,'Marketing',1800);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`cycle2`.`departments`, CONSTRAINT `departments_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `locations` (`locations_id`))
+mysql> INSERT INTO departments(department_id,department_name,location_id) VALUES (3,'Purchasing',1700);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO departments(department_id,department_name,location_id) VALUES (4,'Human Resources',2400);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO departments(department_id,department_name,location_id) VALUES (5,'Shipping',1500);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO departments(department_id,department_name,location_id) VALUES (6,'IT',1400);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO departments(department_id,department_name,location_id) VALUES (7,'Public Relations',2700);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO departments(department_id,department_name,location_id) VALUES (8,'Sales',2500);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`cycle2`.`departments`, CONSTRAINT `departments_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `locations` (`locations_id`))
+mysql> INSERT INTO departments(department_id,department_name,location_id) VALUES (9,'Executive',1700);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO departments(department_id,department_name,location_id) VALUES (10,'Finance',1700);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO departments(department_id,department_name,location_id) VALUES (11,'Accounting',1700);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from departments;
++---------------+------------------+-------------+
+| department_id | department_name  | location_id |
++---------------+------------------+-------------+
+| 1             | Administration   | 1700        |
+| 10            | Finance          | 1700        |
+| 11            | Accounting       | 1700        |
+| 3             | Purchasing       | 1700        |
+| 4             | Human Resources  | 2400        |
+| 5             | Shipping         | 1500        |
+| 6             | IT               | 1400        |
+| 7             | Public Relations | 2700        |
+| 9             | Executive        | 1700        |
++---------------+------------------+-------------+
+9 rows in set (0.00 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (100,'Steven','King','steven.king@sqltutorial.org','5151234567','1987-06-17',4,24000.00,NULL,9);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (101,'Neena','Kochhar','neena.kochhar@sqltutorial.org','5151234568','1989-09-21',5,17000.00,100,9);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (102,'Lex','De Haan','lex.de haan@sqltutorial.org','5151234569','1993-01-13',5,17000.00,100,9);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (103,'Alexander','Hunold','alexander.hunold@sqltutorial.org','5904234567','1990-01-03',9,9000.00,102,6);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (104,'Bruce','Ernst','bruce.ernst@sqltutorial.org','5904234568','1991-05-21',9,6000.00,103,6);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (105,'David','Austin','david.austin@sqltutorial.org','5904234569','1997-06-25',9,4800.00,103,6);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (106,'Valli','Pataballa','valli.pataballa@sqltutorial.org','5904234560','1998-02-05',9,4800.00,103,6);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (107,'Diana','Lorentz','diana.lorentz@sqltutorial.org','5904235567','1999-02-07',9,4200.00,103,6);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (108,'Nancy','Greenberg','nancy.greenberg@sqltutorial.org','5151244569','1994-08-17',7,12000.00,101,10);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (109,'Daniel','Faviet','daniel.faviet@sqltutorial.org','5151244169','1994-08-16',6,9000.00,108,10);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (110,'John','Chen','john.chen@sqltutorial.org','5151244269','1997-09-28',6,8200.00,108,10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (111,'Ismael','Sciarra','ismael.sciarra@sqltutorial.org','5151244369','1997-09-30',6,7700.00,108,10);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (112,'Jose Manuel','Urman','jose manuel.urman@sqltutorial.org','5151244469','1998-03-07',6,7800.00,108,10);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (113,'Luis','Popp','luis.popp@sqltutorial.org','5151244567','1999-12-07',6,6900.00,108,10);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (114,'Den','Raphaely','den.raphaely@sqltutorial.org','5151274561','1994-12-07',14,11000.00,100,3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (115,'Alexander','Khoo','alexander.khoo@sqltutorial.org','5151274562','1995-05-18',13,3100.00,114,3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (116,'Shelli','Baida','shelli.baida@sqltutorial.org','5151274563','1997-12-24',13,2900.00,114,3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (117,'Sigal','Tobias','sigal.tobias@sqltutorial.org','5151274564','1997-07-24',13,2800.00,114,3);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (118,'Guy','Himuro','guy.himuro@sqltutorial.org','5151274565','1998-11-15',13,2600.00,114,3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (119,'Karen','Colmenares','karen.colmenares@sqltutorial.org','5151274566','1999-08-10',13,2500.00,114,3);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (120,'Matthew','Weiss','matthew.weiss@sqltutorial.org','6501231234','1996-07-18',19,8000.00,100,5);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (121,'Adam','Fripp','adam.fripp@sqltutorial.org','6501232234','1997-04-10',19,8200.00,100,5);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (122,'Payam','Kaufling','payam.kaufling@sqltutorial.org','6501233234','1995-05-01',19,7900.00,100,5);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (123,'Shanta','Vollman','shanta.vollman@sqltutorial.org','6501234234','1997-10-10',19,6500.00,100,5);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (126,'Irene','Mikkilineni','irene.mikkilineni@sqltutorial.org','6501241224','1998-09-28',18,2700.00,120,5);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (192,'Sarah','Bell','sarah.bell@sqltutorial.org','6505011876','1996-02-04',17,4000.00,123,5);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (193,'Britney','Everett','britney.everett@sqltutorial.org','6505012876','1997-03-03',17,3900.00,123,5);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (200,'Jennifer','Whalen','jennifer.whalen@sqltutorial.org','5151234444','1987-09-17',3,4400.00,101,1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (203,'Susan','Mavris','susan.mavris@sqltutorial.org','5151237777','1994-06-07',8,6500.00,101,4);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (204,'Hermann','Baer','hermann.baer@sqltutorial.org','5151238888','1994-06-07',12,10000.00,101,7);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (205,'Shelley','Higgins','shelley.higgins@sqltutorial.org','5151238080','1994-06-07',2,12000.00,101,11);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO employees(employee_id,first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES (206,'William','Gietz','william.gietz@sqltutorial.org','5151238181','1994-06-07',1,8300.00,205,11);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from employees;
++-------------+-------------+-------------+-----------------------------------+--------------+------------+--------+--------+------------+---------------+
+| employee_id | first_name  | last_name   | email                             | phone_number | hire_date  | job_id | salary | manager_id | department_id |
++-------------+-------------+-------------+-----------------------------------+--------------+------------+--------+--------+------------+---------------+
+| 100         | Steven      | King        | steven.king@sqltutorial.org       | 5151234567   | 1987-06-17 | 4      |  24000 | NULL       | 9             |
+| 101         | Neena       | Kochhar     | neena.kochhar@sqltutorial.org     | 5151234568   | 1989-09-21 | 5      |  17000 | 100        | 9             |
+| 102         | Lex         | De Haan     | lex.de haan@sqltutorial.org       | 5151234569   | 1993-01-13 | 5      |  17000 | 100        | 9             |
+| 103         | Alexander   | Hunold      | alexander.hunold@sqltutorial.org  | 5904234567   | 1990-01-03 | 9      |   9000 | 102        | 6             |
+| 104         | Bruce       | Ernst       | bruce.ernst@sqltutorial.org       | 5904234568   | 1991-05-21 | 9      |   6000 | 103        | 6             |
+| 105         | David       | Austin      | david.austin@sqltutorial.org      | 5904234569   | 1997-06-25 | 9      |   4800 | 103        | 6             |
+| 106         | Valli       | Pataballa   | valli.pataballa@sqltutorial.org   | 5904234560   | 1998-02-05 | 9      |   4800 | 103        | 6             |
+| 107         | Diana       | Lorentz     | diana.lorentz@sqltutorial.org     | 5904235567   | 1999-02-07 | 9      |   4200 | 103        | 6             |
+| 108         | Nancy       | Greenberg   | nancy.greenberg@sqltutorial.org   | 5151244569   | 1994-08-17 | 7      |  12000 | 101        | 10            |
+| 109         | Daniel      | Faviet      | daniel.faviet@sqltutorial.org     | 5151244169   | 1994-08-16 | 6      |   9000 | 108        | 10            |
+| 110         | John        | Chen        | john.chen@sqltutorial.org         | 5151244269   | 1997-09-28 | 6      |   8200 | 108        | 10            |
+| 111         | Ismael      | Sciarra     | ismael.sciarra@sqltutorial.org    | 5151244369   | 1997-09-30 | 6      |   7700 | 108        | 10            |
+| 112         | Jose Manuel | Urman       | jose manuel.urman@sqltutorial.org | 5151244469   | 1998-03-07 | 6      |   7800 | 108        | 10            |
+| 113         | Luis        | Popp        | luis.popp@sqltutorial.org         | 5151244567   | 1999-12-07 | 6      |   6900 | 108        | 10            |
+| 114         | Den         | Raphaely    | den.raphaely@sqltutorial.org      | 5151274561   | 1994-12-07 | 14     |  11000 | 100        | 3             |
+| 115         | Alexander   | Khoo        | alexander.khoo@sqltutorial.org    | 5151274562   | 1995-05-18 | 13     |   3100 | 114        | 3             |
+| 116         | Shelli      | Baida       | shelli.baida@sqltutorial.org      | 5151274563   | 1997-12-24 | 13     |   2900 | 114        | 3             |
+| 117         | Sigal       | Tobias      | sigal.tobias@sqltutorial.org      | 5151274564   | 1997-07-24 | 13     |   2800 | 114        | 3             |
+| 118         | Guy         | Himuro      | guy.himuro@sqltutorial.org        | 5151274565   | 1998-11-15 | 13     |   2600 | 114        | 3             |
+| 119         | Karen       | Colmenares  | karen.colmenares@sqltutorial.org  | 5151274566   | 1999-08-10 | 13     |   2500 | 114        | 3             |
+| 120         | Matthew     | Weiss       | matthew.weiss@sqltutorial.org     | 6501231234   | 1996-07-18 | 19     |   8000 | 100        | 5             |
+| 121         | Adam        | Fripp       | adam.fripp@sqltutorial.org        | 6501232234   | 1997-04-10 | 19     |   8200 | 100        | 5             |
+| 122         | Payam       | Kaufling    | payam.kaufling@sqltutorial.org    | 6501233234   | 1995-05-01 | 19     |   7900 | 100        | 5             |
+| 123         | Shanta      | Vollman     | shanta.vollman@sqltutorial.org    | 6501234234   | 1997-10-10 | 19     |   6500 | 100        | 5             |
+| 126         | Irene       | Mikkilineni | irene.mikkilineni@sqltutorial.org | 6501241224   | 1998-09-28 | 18     |   2700 | 120        | 5             |
+| 192         | Sarah       | Bell        | sarah.bell@sqltutorial.org        | 6505011876   | 1996-02-04 | 17     |   4000 | 123        | 5             |
+| 193         | Britney     | Everett     | britney.everett@sqltutorial.org   | 6505012876   | 1997-03-03 | 17     |   3900 | 123        | 5             |
+| 200         | Jennifer    | Whalen      | jennifer.whalen@sqltutorial.org   | 5151234444   | 1987-09-17 | 3      |   4400 | 101        | 1             |
+| 203         | Susan       | Mavris      | susan.mavris@sqltutorial.org      | 5151237777   | 1994-06-07 | 8      |   6500 | 101        | 4             |
+| 204         | Hermann     | Baer        | hermann.baer@sqltutorial.org      | 5151238888   | 1994-06-07 | 12     |  10000 | 101        | 7             |
+| 205         | Shelley     | Higgins     | shelley.higgins@sqltutorial.org   | 5151238080   | 1994-06-07 | 2      |  12000 | 101        | 11            |
+| 206         | William     | Gietz       | william.gietz@sqltutorial.org     | 5151238181   | 1994-06-07 | 1      |   8300 | 205        | 11            |
++-------------+-------------+-------------+-----------------------------------+--------------+------------+--------+--------+------------+---------------+
+32 rows in set (0.00 sec)
+
+mysql> ALTER TABLE dependents  ADD  relationship VARCHAR(100);
+Query OK, 0 rows affected (0.11 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC dependents;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| dependent_id | varchar(200) | NO   | PRI | NULL    |       |
+| first_name   | varchar(200) | YES  |     | NULL    |       |
+| last_name    | varchar(200) | YES  |     | NULL    |       |
+| employee_id  | varchar(200) | YES  | MUL | NULL    |       |
+| relationship | varchar(100) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (1,'Penelope','Gietz','Child',206);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (2,'Nick','Higgins','Child',205);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (3,'Ed','Whalen','Child',200);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (4,'Jennifer','King','Child',100);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (5,'Johnny','Kochhar','Child',101);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (6,'Bette','De Haan','Child',102);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (7,'Grace','Faviet','Child',109);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (8,'Matthew','Chen','Child',110);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (9,'Joe','Sciarra','Child',111);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (10,'Christian','Urman','Child',112);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (11,'Zero','Popp','Child',113);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (12,'Karl','Greenberg','Child',108);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (13,'Uma','Mavris','Child',203);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (14,'Vivien','Hunold','Child',103);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (15,'Cuba','Ernst','Child',104);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (16,'Fred','Austin','Child',105);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (17,'Helen','Pataballa','Child',106);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (18,'Dan','Lorentz','Child',107);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (21,'Kirsten','Baer','Child',204);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (22,'Elvis','Khoo','Child',115);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (23,'Sandra','Baida','Child',116);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (24,'Cameron','Tobias','Child',117);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (25,'Kevin','Himuro','Child',118);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (26,'Rip','Colmenares','Child',119);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO dependents(dependent_id,first_name,last_name,relationship,employee_id) VALUES (27,'Julia','Raphaely','Child',114);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from dependents;
++--------------+------------+------------+-------------+--------------+
+| dependent_id | first_name | last_name  | employee_id | relationship |
++--------------+------------+------------+-------------+--------------+
+| 1            | Penelope   | Gietz      | 206         | Child        |
+| 10           | Christian  | Urman      | 112         | Child        |
+| 11           | Zero       | Popp       | 113         | Child        |
+| 12           | Karl       | Greenberg  | 108         | Child        |
+| 13           | Uma        | Mavris     | 203         | Child        |
+| 14           | Vivien     | Hunold     | 103         | Child        |
+| 15           | Cuba       | Ernst      | 104         | Child        |
+| 16           | Fred       | Austin     | 105         | Child        |
+| 17           | Helen      | Pataballa  | 106         | Child        |
+| 18           | Dan        | Lorentz    | 107         | Child        |
+| 2            | Nick       | Higgins    | 205         | Child        |
+| 21           | Kirsten    | Baer       | 204         | Child        |
+| 22           | Elvis      | Khoo       | 115         | Child        |
+| 23           | Sandra     | Baida      | 116         | Child        |
+| 24           | Cameron    | Tobias     | 117         | Child        |
+| 25           | Kevin      | Himuro     | 118         | Child        |
+| 26           | Rip        | Colmenares | 119         | Child        |
+| 27           | Julia      | Raphaely   | 114         | Child        |
+| 3            | Ed         | Whalen     | 200         | Child        |
+| 4            | Jennifer   | King       | 100         | Child        |
+| 5            | Johnny     | Kochhar    | 101         | Child        |
+| 6            | Bette      | De Haan    | 102         | Child        |
+| 7            | Grace      | Faviet     | 109         | Child        |
+| 8            | Matthew    | Chen       | 110         | Child        |
+| 9            | Joe        | Sciarra    | 111         | Child        |
++--------------+------------+------------+-------------+--------------+
+25 rows in set (0.00 sec)
+
+
