@@ -147,3 +147,44 @@ name is ‘Smith’ by using the above created view.
 28. Display the details of employees who have at least one dependent.
 
 
+
+
+Finds all departments (Department Id, Name) that do not have any employee with the
+salary greater than 10,000.
+SQL:SELECT d.department_id, d.department_name FROM departments d WHERE
+NOT EXISTS ( SELECT 1 FROM Employees e WHERE e.department_id =
+d.department_id AND e.salary > 10000 );
+Output:
+7. Finds all employees whose salaries are greater than the lowest salary of every
+Department.
+SQL: SELECT e.* FROM Employees e JOIN ( SELECT department_id, MIN(salary)
+as min_salary FROM Employees GROUP BY department_id) AS dept_min_salary
+ON e.department_id = dept_min_salary.department_id WHERE e.salary >
+dept_min_salary.min_salary;
+Output:
+8. Finds all employees whose salaries are greater than or equal to the highest salary of
+every department.
+SQL:SELECT e.* FROM Employees e JOIN ( SELECT department_id, MAX(salary)
+as max_salary FROM Employees GROUP BY department_id) AS dept_max_salary
+ON e.department_id = dept_max_salary.department_id WHERE e.salary >=
+dept_max_salary.max_salary;
+Output:
+26
+9. Calculate the average of average salary of departments. (Hint: SQL subquery in the
+FROM clause)
+SQL: SELECT AVG(dept_avg_salary) AS overall_avg_salary FROM (SELECT
+department_id, AVG(salary) AS dept_avg_salary FROM Employees GROUP BY
+department_id) AS dept_avg_salary_subquery;
+Output:
+10. Finds the salaries of all employees, their average salary, and the difference between the
+salary of each employee and the average salary. (Hint: SQL Subquery in the SELECT
+clause)
+SQL: SELECT employee_id, first_name, last_name, salary, (SELECT
+ROUND(AVG(salary), 0) FROM Employees) average_salary, salary -(SELECT
+ROUND(AVG(salary), 0)FROM Employees)difference FROM Employees ORDER BY
+first_name , last_name;
+Output:
+11. Finds all employees whose salary is higher than the average salary of the employees in
+their departments. (Hint : Use Correlated Subquery).
+SQL: SELECT e.* FROM Employees e WHERE e.salary > (SELECT AVG(e2.salary)
+FROM Employees e2 WHERE e2.department_id = e.department_id);
